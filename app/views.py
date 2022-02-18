@@ -30,14 +30,12 @@ def about():
 @app.route('/contact', methods=['GET','POST'])
 def contact():
     form = ContactForm()
-    if form.validate_on_submit():
+    if request.method == 'POST' and form.validate():
         msg = Message(form.subject.data, sender=(form.name.data, form.email.data),recipients=["to@example.com"])
-        msg.body = form.email.data
+        msg.body = form.message.data
         mail.send(msg)
         flash('Your email was successfully sent')
-        return redirect(url_for('/'))
-    else:
-        flash('Message was not sent')
+        return redirect(url_for('home'))
     return render_template('contact.html', form=form)
 
 

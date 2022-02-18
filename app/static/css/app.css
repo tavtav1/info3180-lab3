@@ -1,3 +1,28 @@
 body {
     padding-top: 5rem;
 }
+
+#required {
+    color: red;
+}
+
+.message{
+    color: green;
+    font-weight: 500;
+}
+
+label{
+    margin-top: 20px;
+}
+
+#submit{
+    margin-top: 20px;
+    background-color: mediumblue;
+    width: 10%;
+    color: white;
+}
+
+textarea{
+    width: 450px;
+    height: 200px;
+}
